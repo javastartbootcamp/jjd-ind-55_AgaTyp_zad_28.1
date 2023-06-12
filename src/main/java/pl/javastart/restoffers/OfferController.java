@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Optional;
 
 @RestController
-public class offerController {
+public class OfferController {
     private final OfferService offerService;
 
-    public offerController(OfferService offerService) {
+    public OfferController(OfferService offerService) {
         this.offerService = offerService;
     }
 
