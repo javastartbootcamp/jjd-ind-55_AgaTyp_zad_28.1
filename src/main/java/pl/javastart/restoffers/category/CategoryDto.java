@@ -1,18 +1,14 @@
-package pl.javastart.restoffers;
+package pl.javastart.restoffers.category;
 
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
-
-@Entity
-public class Category {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CategoryDto {
     private Long id;
     private String name;
     private String description;
-    @OneToMany(mappedBy = "category")
-    private List<Offer> offers = new ArrayList<>();
+    private Integer offers;
+
+    public String getName() {
+        return name;
+    }
 
     public Long getId() {
         return id;
@@ -20,10 +16,6 @@ public class Category {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -38,11 +30,11 @@ public class Category {
         this.description = description;
     }
 
-    public List<Offer> getOffers() {
+    public Integer getOffers() {
         return offers;
     }
 
-    public void setOffers(List<Offer> offers) {
+    public void setOffers(Integer offers) {
         this.offers = offers;
     }
 }

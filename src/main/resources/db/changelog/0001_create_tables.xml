@@ -21,7 +21,7 @@
             </column>
             <column name="title" type="VARCHAR(100)"/>
             <column name="description" type="VARCHAR(500)"/>
-            <column name="imgUrl" type="VARCHAR(200)"/>
+            <column name="img_url" type="VARCHAR(200)"/>
             <column name="price" type="DOUBLE"/>
             <column name="category_id" type="BIGINT">
                 <constraints nullable="false"/>

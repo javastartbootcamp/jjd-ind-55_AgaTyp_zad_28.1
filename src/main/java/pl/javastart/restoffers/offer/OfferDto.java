@@ -1,19 +1,12 @@
-package pl.javastart.restoffers;
+package pl.javastart.restoffers.offer;
 
-import javax.persistence.*;
-
-@Entity
-public class Offer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class OfferDto {
     private Long id;
     private String title;
     private String description;
     private String imgUrl;
     private Double price;
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private String category;
 
     public Long getId() {
         return id;
@@ -55,11 +48,11 @@ public class Offer {
         this.price = price;
     }
 
-    public Category getCompany() {
+    public String getCategory() {
         return category;
     }
 
-    public void setCompany(Category category) {
+    public void setCategory(String category) {
         this.category = category;
     }
 }

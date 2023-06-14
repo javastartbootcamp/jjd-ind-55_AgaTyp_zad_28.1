@@ -1,12 +1,21 @@
-package pl.javastart.restoffers;
+package pl.javastart.restoffers.offer;
 
-public class OfferDto {
+import pl.javastart.restoffers.category.Category;
+
+import javax.persistence.*;
+
+@Entity
+public class Offer {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String description;
     private String imgUrl;
     private Double price;
-    private String categoryName;
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Long getId() {
         return id;
@@ -48,11 +57,11 @@ public class OfferDto {
         this.price = price;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
