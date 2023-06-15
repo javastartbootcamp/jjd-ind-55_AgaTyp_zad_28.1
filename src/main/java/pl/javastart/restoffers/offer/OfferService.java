@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 @Service
 public class OfferService {
@@ -22,13 +21,15 @@ public class OfferService {
     }
 
     List<OfferDto> getAllOffers() {
-        return StreamSupport.stream(offerRepository.findAll().spliterator(), false)
+        return offerRepository.findAll()
+                .stream()
                 .map(offerDtoMapper::map)
                 .toList();
     }
 
     List<OfferDto> getOffersByTitlePart(String titlePart) {
-        return StreamSupport.stream(offerRepository.findByTitleLike(titlePart).spliterator(), false)
+        return offerRepository.findByTitleLike(titlePart)
+                .stream()
                 .map(offerDtoMapper::map)
                 .toList();
     }

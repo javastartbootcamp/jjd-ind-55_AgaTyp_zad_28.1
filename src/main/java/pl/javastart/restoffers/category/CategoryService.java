@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.StreamSupport;
 
 @Service
 public class CategoryService {
@@ -22,13 +21,15 @@ public class CategoryService {
     }
 
     List<CategoryDto> getAllCategories() {
-        return StreamSupport.stream(categoryRepository.findAll().spliterator(), false)
+        return categoryRepository.findAll()
+                .stream()
                 .map(categoryDtoMapper::map)
                 .toList();
     }
 
     List<String> getAllCategoriesNames() {
-        return StreamSupport.stream(categoryRepository.findAll().spliterator(), false)
+        return categoryRepository.findAll()
+                .stream()
                 .map(categoryDtoMapper::map)
                 .map(CategoryDto::getName)
                 .toList();
